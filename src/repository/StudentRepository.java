@@ -20,6 +20,10 @@ public class StudentRepository implements IStudentRepository {
     
     @Override
     public void display(List<Student> students){
+        if(students.isEmpty()){
+            System.out.println("List is empty");
+            return;
+        }
         StudentDao.Instance().display(students);
     }
 }
