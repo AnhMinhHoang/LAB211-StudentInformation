@@ -31,11 +31,15 @@ public class StudentDao {
     }
 
     public void adding(List<Student> students, Student new_student) {
-        new_student.setName(valid.inputString("Enter name"));
-        new_student.setClasses(valid.inputString("Enter class"));
-        new_student.setMark(valid.inputInt("Enter mark", 0, 100));
-        students.add(new_student);
-        Collections.sort(students, new Library());
+        String choice = "Y";
+        while(choice.equalsIgnoreCase("Y")){
+            new_student.setName(valid.inputString("Enter name"));
+            new_student.setClasses(valid.inputString("Enter class"));
+            new_student.setMark(valid.inputInt("Enter mark", 0, 100));
+            students.add(new_student);
+            Collections.sort(students, new Library());
+            choice = valid.inputStringMatch("Do you want to enter more student information?(Y/N)", "[YNyn]");
+        }
     }
 
     public void display(List<Student> students) {
